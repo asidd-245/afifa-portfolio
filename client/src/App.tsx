@@ -6,7 +6,8 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import About from "./pages/About";
-import { Projects, Experience, Contact } from "./pages/PlaceholderPages";
+import Projects from "./pages/Projects";
+import { Experience, Contact } from "./pages/PlaceholderPages";
 
 function Router() {
   return (
