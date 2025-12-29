@@ -65,32 +65,25 @@ export default function Contact() {
               </CardHeader>
               <CardContent className="space-y-4">
                 <div className="flex flex-col gap-3">
-                  <a href="mailto:afifa@example.com" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
+                  <a href="mailto:afifasiddiqua24@gmail.com" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
                     <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-google-red">
                       <Mail className="w-4 h-4" />
                     </div>
-                    <span className="text-google-blue">afifa@example.com</span>
+                    <span className="text-google-blue">afifasiddiqua24@gmail.com</span>
                   </a>
                   
-                  <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
+                  <a href="https://linkedin.com/in/afifa-siddiqua/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
                     <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-google-blue">
                       <Linkedin className="w-4 h-4" />
                     </div>
                     <span className="text-google-blue">LinkedIn Profile</span>
                   </a>
                   
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
+                  <a href="https://github.com/asidd-245" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
                     <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-foreground">
                       <Github className="w-4 h-4" />
                     </div>
                     <span className="text-google-blue">GitHub Profile</span>
-                  </a>
-                  
-                  <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-sm hover:bg-secondary/50 p-2 rounded-lg transition-colors">
-                    <div className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center text-google-blue">
-                      <Twitter className="w-4 h-4" />
-                    </div>
-                    <span className="text-google-blue">Twitter Profile</span>
                   </a>
                 </div>
               </CardContent>
@@ -124,7 +117,7 @@ export default function Contact() {
                   <label className="text-xs text-muted-foreground font-medium ml-1">To</label>
                   <div className="flex items-center gap-2 px-3 py-2 bg-secondary/20 rounded-md border border-border/50">
                     <div className="w-5 h-5 rounded-full bg-google-blue text-white flex items-center justify-center text-xs">A</div>
-                    <span className="text-sm">Afifa &lt;afifa@example.com&gt;</span>
+                    <span className="text-sm">Afifa &lt;afifasiddiqua24@gmail.com&gt;</span>
                   </div>
                 </div>
                 

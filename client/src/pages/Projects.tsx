@@ -103,32 +103,25 @@ const ProjectResult = ({ title, url, description, tags, icon, image }: ProjectRe
 export default function Projects() {
   const projects = [
     {
-      title: "E-Commerce Dashboard",
-      url: "https://github.com/afifa/ecommerce-dashboard",
-      description: "A comprehensive analytics dashboard for online retailers. Features real-time data visualization, inventory management, and sales reporting. Built with React, TypeScript, and Recharts for dynamic charting capabilities.",
-      tags: ["React", "TypeScript", "Data Viz", "Dashboard"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
+      title: "StressSens: AI-Powered Stress Monitoring",
+      url: "https://github.com/asidd-245/StressSens",
+      description: "Engineered a full-stack stress-monitoring pipeline using JavaScript, Node.js, and Apple Watch health-signal processing. Built personalized coaching features using OpenAI LLMs and deployed a Dockerized Node.js backend.",
+      tags: ["JavaScript", "Node.js", "OpenAI API", "Docker"],
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop"
     },
     {
-      title: "Task Management API",
-      url: "https://github.com/afifa/task-api",
-      description: "Robust RESTful API for task organization and team collaboration. Includes JWT authentication, role-based access control, and optimized database queries. Designed for scalability and performance.",
-      tags: ["Node.js", "Express", "PostgreSQL", "API"],
-      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=600&auto=format&fit=crop"
+      title: "PillSync - Medication Tracking App",
+      url: "https://github.com/asidd-245/PillSync",
+      description: "Built a full-stack medication-tracking web app using React & Node.js. Designed an interaction-analysis engine using RxNorm & OpenFDA APIs to generate reliable risk assessments for users.",
+      tags: ["React", "Node.js", "RxNorm", "OpenFDA"],
+      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop"
     },
     {
-      title: "Weather Forecast App",
-      url: "https://github.com/afifa/weather-app",
-      description: "Responsive weather application providing accurate forecasts based on user location. Integrates with third-party weather APIs to display current conditions, hourly updates, and 7-day predictions.",
-      tags: ["JavaScript", "API Integration", "CSS3", "Mobile First"],
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?q=80&w=600&auto=format&fit=crop"
-    },
-    {
-      title: "Portfolio Website v1",
-      url: "https://github.com/afifa/portfolio-v1",
-      description: "My first personal portfolio website showcasing early projects and design experiments. A static site built with HTML5 and SCSS, demonstrating fundamental web development skills and responsive design principles.",
-      tags: ["HTML5", "SCSS", "Static Site", "Design"],
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop"
+      title: "SpeakEasy: ALS Morse Code Translator",
+      url: "https://github.com/asidd-245/SpeakEasy",
+      description: "Developed an assistive-communication system using STM32 microcontrollers, C++, and capacitive touch sensors. Enabled hands-free Morse-code input for ALS patients, improving communication accuracy.",
+      tags: ["C++", "STM32", "Embedded Systems", "Assistive Tech"],
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop"
     }
   ];
 

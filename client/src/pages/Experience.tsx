@@ -105,52 +105,41 @@ const ExperienceItem = ({ role, company, period, location, description, color }:
 export default function Experience() {
   const experiences = [
     {
-      role: "Senior Full Stack Developer",
-      company: "Tech Innovations Inc.",
-      period: "Jan 2023 - Present",
-      location: "Toronto, ON",
+      role: "Software Engineer Lead",
+      company: "Battery Workforce Challenge by Stellantis",
+      period: "Sept 2025 - Present",
+      location: "Waterloo, ON",
       description: [
-        "Leading a team of 5 developers in building a cloud-native SaaS platform.",
-        "Architected microservices using Node.js and Kubernetes, reducing deployment time by 40%.",
-        "Implemented CI/CD pipelines and automated testing strategies to ensure code quality."
+        "Developed BMS software using C++, Python, & CAN bus tooling to enable real-time battery monitoring.",
+        "Modeled and validated Li-ion cells in MATLAB & Simulink, improving performance accuracy & safety evaluations.",
+        "Integrated sensor data with embedded systems using Git & automated testing streamlining software reliability."
       ],
       color: "bg-google-blue"
     },
     {
-      role: "Software Developer",
-      company: "Creative Solutions Ltd.",
-      period: "Jun 2021 - Dec 2022",
-      location: "Vancouver, BC",
+      role: "Digital Transformation Intern",
+      company: "Saint Elizabeth Healthcare",
+      period: "Apr 2025 - Aug 2025",
+      location: "Markham, ON",
       description: [
-        "Developed and maintained high-traffic e-commerce websites using React and Next.js.",
-        "Optimized database queries and API endpoints, improving application performance by 25%.",
-        "Collaborated with UX designers to implement responsive and accessible user interfaces."
+        "Automated data pipelines using Python ETL scripts, reducing clinical reporting cycle times by 40%.",
+        "Built interactive KPI dashboards in Power BI and MicroStrategy, increasing operational insight coverage by 30%.",
+        "Researched AI-agent applications using LLM frameworks and technical feasibility analysis, identifying 5+ high-impact opportunities.",
+        "Supported project management using Scrum reports & Monday.com, ensuring timely hospital report delivery."
       ],
       color: "bg-google-red"
     },
     {
-      role: "Junior Web Developer",
-      company: "StartUp Hub",
-      period: "May 2020 - May 2021",
-      location: "Montreal, QC",
+      role: "Team Leader",
+      company: "Durham Regional Police",
+      period: "Jun 2024 - Sept 2024",
+      location: "Durham, ON",
       description: [
-        "Assisted in the development of client websites using HTML, CSS, and JavaScript.",
-        "Participated in code reviews and bug fixing sessions to maintain code stability.",
-        "Learned and applied modern frontend frameworks and best practices."
+        "Coordinated Community, Advocacy, & Networking (CAN) conference operations using digital communication tools.",
+        "Enhanced program efficiency using Excel tracking systems, improving operational organization and reporting clarity.",
+        "Mentored 100+ students using structured training, strengthening leadership and advocacy skill development."
       ],
       color: "bg-google-yellow"
-    },
-    {
-      role: "Web Development Intern",
-      company: "Digital Agency",
-      period: "Sep 2019 - Apr 2020",
-      location: "Remote",
-      description: [
-        "Supported the development team in creating landing pages and email templates.",
-        "Gained hands-on experience with version control systems (Git) and agile methodologies.",
-        "Contributed to internal documentation and knowledge sharing initiatives."
-      ],
-      color: "bg-google-green"
     }
   ];
 

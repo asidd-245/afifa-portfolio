@@ -76,9 +76,9 @@ export default function About() {
           <div className="space-y-4">
             <h2 className="text-2xl font-normal">About</h2>
             <p className="text-foreground/80 leading-relaxed">
-              I am a passionate developer with a keen eye for design and a drive to solve complex problems. 
-              My journey in tech started with a curiosity about how things work, which quickly evolved into a love for building software.
-              I specialize in creating intuitive, user-centric digital experiences that bridge the gap between functionality and aesthetics.
+              I am a Computer Engineering student at the University of Waterloo with a passion for software development, AI, and embedded systems. 
+              My experience spans from developing BMS software for electric vehicles to building AI-powered web applications.
+              I have a strong foundation in languages like Java, C++, and Python, and I enjoy working with modern frameworks like React and Node.js.
             </p>
             <div className="flex gap-2 text-sm text-google-blue cursor-pointer hover:underline">
               <span>Wikipedia</span>
@@ -135,8 +135,8 @@ export default function About() {
                  <div className="w-full h-full bg-google-blue text-white flex items-center justify-center text-3xl font-bold">A</div>
               </div>
               
-              <h2 className="text-3xl font-normal mb-1">Afifa</h2>
-              <p className="text-muted-foreground mb-4">Software Developer</p>
+              <h2 className="text-3xl font-normal mb-1">Afifa Siddiqua</h2>
+              <p className="text-muted-foreground mb-4">Computer Engineering Student</p>
               
               <div className="flex gap-2 mb-6">
                 <Button className="bg-google-blue hover:bg-google-blue/90 text-white rounded-full px-6">Follow</Button>
@@ -144,7 +144,7 @@ export default function About() {
               </div>
 
               <p className="text-sm leading-relaxed mb-6">
-                Afifa is a software developer known for her creative approach to problem-solving and expertise in modern web technologies.
+                Afifa is a Computer Engineering student at the University of Waterloo, experienced in full-stack development, embedded systems, and AI integration.
               </p>
 
               <div className="space-y-4 text-sm">
@@ -154,7 +154,7 @@ export default function About() {
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2">
                   <span className="font-bold">Education</span>
-                  <span className="text-google-blue cursor-pointer hover:underline">University of Technology (B.Sc. CS)</span>
+                  <span className="text-google-blue cursor-pointer hover:underline">University of Waterloo (BASc)</span>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2">
                   <span className="font-bold">Experience</span>
@@ -166,12 +166,14 @@ export default function About() {
 
               <h3 className="font-medium mb-4">Technical Skills</h3>
               <div className="flex flex-wrap gap-2 mb-6">
-                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">React</Badge>
-                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">TypeScript</Badge>
-                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">Node.js</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">Java</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">C++</Badge>
                 <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">Python</Badge>
-                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">Tailwind</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">ReactJS</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">NodeJS</Badge>
                 <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">SQL</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">AWS</Badge>
+                <Badge variant="secondary" className="rounded-full px-3 py-1 font-normal hover:bg-secondary/80">Docker</Badge>
               </div>
 
               <h3 className="font-medium mb-4">Soft Skills</h3>
