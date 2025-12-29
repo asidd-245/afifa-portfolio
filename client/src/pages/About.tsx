@@ -31,7 +31,9 @@ export default function About() {
         </div>
         
         <div className="ml-auto flex items-center gap-4">
-          <div className="w-8 h-8 rounded-full bg-google-blue text-white flex items-center justify-center font-bold">A</div>
+          <div className="w-8 h-8 rounded-full bg-google-blue text-white flex items-center justify-center font-bold overflow-hidden">
+            <img src="/images/profile.jpg" alt="A" className="w-full h-full object-cover" />
+        </div>
         </div>
       </header>
 
@@ -59,16 +61,16 @@ export default function About() {
           {/* Image Gallery Grid */}
           <div className="grid grid-cols-4 grid-rows-2 gap-2 h-[300px] rounded-2xl overflow-hidden">
             <div className="col-span-2 row-span-2 bg-secondary relative group cursor-pointer">
-              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=800&auto=format&fit=crop" alt="Profile" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/profile.jpg" alt="Afifa Siddiqua" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="bg-secondary relative group cursor-pointer">
-              <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=400&auto=format&fit=crop" alt="Coding" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/photo3.jpg" alt="Afifa" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="bg-secondary relative group cursor-pointer">
               <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="Workspace" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="col-span-2 bg-secondary relative group cursor-pointer">
-              <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop" alt="Team" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/group.jpg" alt="Team Collaboration" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
           </div>
 
@@ -132,7 +134,7 @@ export default function About() {
             <div className="h-32 bg-gradient-to-r from-google-blue/20 via-google-red/20 to-google-yellow/20"></div>
             <div className="px-6 pb-6 -mt-12">
               <div className="w-24 h-24 rounded-full border-4 border-background bg-white overflow-hidden shadow-sm mb-4">
-                 <div className="w-full h-full bg-google-blue text-white flex items-center justify-center text-3xl font-bold">A</div>
+                 <img src="/images/profile.jpg" alt="Afifa Siddiqua" className="w-full h-full object-cover" />
               </div>
               
               <h2 className="text-3xl font-normal mb-1">Afifa Siddiqua</h2>
