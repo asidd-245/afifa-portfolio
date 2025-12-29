@@ -1,6 +1,11 @@
 import { Search, MoreVertical, Globe, FolderGit2 } from "lucide-react";
 import { Link } from "wouter";
 import { Badge } from "@/components/ui/badge";
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
 
 const Header = () => (
   <header className="sticky top-0 bg-background z-50 border-b border-border/40 px-4 py-3 flex items-center gap-4 md:gap-8 shadow-sm">
@@ -45,9 +50,10 @@ interface ProjectResultProps {
   description: string;
   tags: string[];
   icon?: React.ReactNode;
+  image?: string;
 }
 
-const ProjectResult = ({ title, url, description, tags, icon }: ProjectResultProps) => (
+const ProjectResult = ({ title, url, description, tags, icon, image }: ProjectResultProps) => (
   <div className="max-w-[600px] mb-8 group">
     <div className="flex items-center gap-3 mb-1">
       <div className="w-7 h-7 rounded-full bg-secondary flex items-center justify-center border border-border">
@@ -60,9 +66,25 @@ const ProjectResult = ({ title, url, description, tags, icon }: ProjectResultPro
       <MoreVertical className="w-4 h-4 text-muted-foreground ml-auto cursor-pointer" />
     </div>
     
-    <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="block group-hover:underline decoration-google-blue decoration-2">
-      <h3 className="text-xl text-google-blue font-medium mb-1">{title}</h3>
-    </a>
+    <HoverCard openDelay={200}>
+      <HoverCardTrigger asChild>
+        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="block w-fit">
+          <h3 className="text-xl text-google-blue font-medium mb-1 group-hover:underline decoration-google-blue decoration-2 cursor-pointer">{title}</h3>
+        </a>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80 p-0 overflow-hidden border-border shadow-lg" side="right" align="start">
+        <div className="relative aspect-video bg-secondary">
+          <img 
+            src={image || "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=600&auto=format&fit=crop"} 
+            alt={title}
+            className="w-full h-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-3">
+            <span className="text-white font-medium text-sm">{title} Preview</span>
+          </div>
+        </div>
+      </HoverCardContent>
+    </HoverCard>
     
     <p className="text-sm text-foreground/80 leading-relaxed mb-2">
       {description}
@@ -84,25 +106,29 @@ export default function Projects() {
       title: "E-Commerce Dashboard",
       url: "https://github.com/afifa/ecommerce-dashboard",
       description: "A comprehensive analytics dashboard for online retailers. Features real-time data visualization, inventory management, and sales reporting. Built with React, TypeScript, and Recharts for dynamic charting capabilities.",
-      tags: ["React", "TypeScript", "Data Viz", "Dashboard"]
+      tags: ["React", "TypeScript", "Data Viz", "Dashboard"],
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=600&auto=format&fit=crop"
     },
     {
       title: "Task Management API",
       url: "https://github.com/afifa/task-api",
       description: "Robust RESTful API for task organization and team collaboration. Includes JWT authentication, role-based access control, and optimized database queries. Designed for scalability and performance.",
-      tags: ["Node.js", "Express", "PostgreSQL", "API"]
+      tags: ["Node.js", "Express", "PostgreSQL", "API"],
+      image: "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=600&auto=format&fit=crop"
     },
     {
       title: "Weather Forecast App",
       url: "https://github.com/afifa/weather-app",
       description: "Responsive weather application providing accurate forecasts based on user location. Integrates with third-party weather APIs to display current conditions, hourly updates, and 7-day predictions.",
-      tags: ["JavaScript", "API Integration", "CSS3", "Mobile First"]
+      tags: ["JavaScript", "API Integration", "CSS3", "Mobile First"],
+      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?q=80&w=600&auto=format&fit=crop"
     },
     {
       title: "Portfolio Website v1",
       url: "https://github.com/afifa/portfolio-v1",
       description: "My first personal portfolio website showcasing early projects and design experiments. A static site built with HTML5 and SCSS, demonstrating fundamental web development skills and responsive design principles.",
-      tags: ["HTML5", "SCSS", "Static Site", "Design"]
+      tags: ["HTML5", "SCSS", "Static Site", "Design"],
+      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=600&auto=format&fit=crop"
     }
   ];
 
