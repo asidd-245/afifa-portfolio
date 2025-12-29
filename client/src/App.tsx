@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
-import { Contact } from "./pages/PlaceholderPages";
+import Contact from "./pages/Contact";
 
 function Router() {
   return (
