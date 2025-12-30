@@ -11,11 +11,13 @@ const Header = () => (
   <header className="sticky top-0 bg-background z-50 border-b border-border/40 px-4 py-3 flex items-center gap-4 md:gap-8 shadow-sm">
     <Link href="/">
       <div className="text-2xl font-bold tracking-tighter select-none cursor-pointer">
-        <span className="text-google-blue">A</span>
+        <span className="text-google-blue">a</span>
         <span className="text-google-red">f</span>
-        <span className="text-google-yellow">i</span>
-        <span className="text-google-blue">f</span>
-        <span className="text-google-green inline-block transform rotate-12">a</span>
+        <span className="text-google-yellow">o</span>
+        <span className="text-google-blue">o</span>
+        <span className="text-google-green">f</span>
+        <span className="text-google-red">l</span>
+        <span className="text-google-blue inline-block transform rotate-12">e</span>
       </div>
     </Link>
     

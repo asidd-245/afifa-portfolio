@@ -69,13 +69,20 @@ export default function Home() {
       {/* Main Content */}
       <main className="flex flex-col items-center w-full max-w-2xl gap-8 -mt-20">
         {/* Logo - Thinner and Tilted */}
-        <h1 className="text-[5.5rem] font-medium tracking-tighter select-none">
-          <span className="text-google-blue">A</span>
-          <span className="text-google-red">f</span>
-          <span className="text-google-yellow">i</span>
-          <span className="text-google-blue">f</span>
-          <span className="text-google-green inline-block transform rotate-12">a</span>
-        </h1>
+        <div className="flex flex-col items-center gap-2">
+          <h1 className="text-[5.5rem] font-medium tracking-tighter select-none">
+            <span className="text-google-blue">a</span>
+            <span className="text-google-red">f</span>
+            <span className="text-google-yellow">o</span>
+            <span className="text-google-blue">o</span>
+            <span className="text-google-green">f</span>
+            <span className="text-google-red">l</span>
+            <span className="text-google-blue inline-block transform rotate-12">e</span>
+          </h1>
+          <p className="text-sm text-muted-foreground -mt-4">
+            afifa siddiqua's personal search engine
+          </p>
+        </div>
 
         {/* Search Bar */}
         <form onSubmit={handleSearch} className="w-full relative group">
