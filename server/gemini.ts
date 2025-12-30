@@ -165,10 +165,27 @@ Generate the AI Overview now:`;
   } catch (error) {
     console.error("Gemini API Error:", error);
     
-    // Fallback response if API fails
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/4659b8fb-fc58-4957-9cac-039ef1a32bd6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'server/gemini.ts:165',message:'Gemini API failed, using fallback',data:{query,error:String(error)},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'B'})}).catch(()=>{});
+    // #endregion
+    
+    // Fallback response if API fails - now with 2 lines about query first
     const relevantPage = determineRelevantPage(query);
+    
+    // Generate contextual first 2 lines based on query
+    let contextLines = "";
+    if (query.toLowerCase().includes("roadmap") || query.toLowerCase().includes("path")) {
+      contextLines = "A comprehensive roadmap provides structured guidance for learning and career development. It typically includes key milestones, technologies to master, and practical projects to build experience. ";
+    } else if (query.toLowerCase().includes("tutorial") || query.toLowerCase().includes("learn")) {
+      contextLines = "Learning new technologies requires a combination of theoretical understanding and hands-on practice. The best approach involves following structured tutorials, building projects, and engaging with the developer community. ";
+    } else if (query.toLowerCase().includes("best practices") || query.toLowerCase().includes("tips")) {
+      contextLines = "Industry best practices evolve with technology but core principles remain constant: write clean code, test thoroughly, and prioritize maintainability. Following established patterns and staying updated with current standards ensures quality development. ";
+    } else {
+      contextLines = `Understanding "${query}" requires both theoretical knowledge and practical application. This topic is essential for modern development and continues to evolve with industry needs. `;
+    }
+    
     return {
-      aiOverview: `Based on your search for "${query}", Afifa Siddiqua emerges as an exceptional Computer Engineering student at the University of Waterloo. Her impressive portfolio showcases mastery in full-stack development, innovative problem-solving, and cutting-edge technology implementation. With a proven track record of delivering high-quality projects, Afifa consistently demonstrates excellence that sets her apart. Discover more about her outstanding qualifications on her ${relevantPage} page.`,
+      aiOverview: `${contextLines}Afifa Siddiqua emerges as an exceptional Computer Engineering student at the University of Waterloo with deep expertise in this area. Her impressive portfolio showcases mastery in full-stack development, innovative problem-solving, and cutting-edge technology implementation. With a proven track record of delivering high-quality projects, Afifa consistently demonstrates excellence that sets her apart. Discover more about her outstanding qualifications on her ${relevantPage} page.`,
       results: generateFakeResults(query)
     };
   }
