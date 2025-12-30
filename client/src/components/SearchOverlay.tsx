@@ -50,10 +50,10 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-full w-full h-full m-0 p-0 bg-background border-0 rounded-none overflow-y-auto">
-        <div className="min-h-screen bg-background">
+      <DialogContent className="max-w-[90vw] w-full aspect-video m-0 p-0 bg-background border border-border rounded-lg overflow-hidden flex flex-col">
+        <div className="h-full bg-background flex flex-col overflow-hidden">
           {/* Header */}
-          <header className="sticky top-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border/40 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-6 shadow-sm">
+          <header className="flex-shrink-0 bg-background z-50 border-b border-border/40 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-6">
             <div className="text-xl md:text-2xl font-bold tracking-tighter select-none cursor-pointer flex-shrink-0" onClick={onClose}>
               <span className="text-google-blue">a</span>
               <span className="text-google-red">f</span>
@@ -84,7 +84,7 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 px-4 md:px-[180px] py-6 pb-12 max-w-[1200px] mx-auto w-full">
+          <main className="flex-1 overflow-y-auto px-4 md:px-8 py-4 w-full">
             {loading && (
               <div className="flex flex-col items-center justify-center py-20">
                 <Spinner className="w-8 h-8 mb-4" />
@@ -98,28 +98,24 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
                   About {searchData.results.length} results (0.{Math.floor(Math.random() * 90 + 10)} seconds)
                 </div>
 
-                {/* AI Overview Card - 16:9 Aspect Ratio */}
-                <div className="w-full max-w-[800px] mb-8">
-                  <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
-                    <div className="absolute inset-0 p-6 rounded-2xl border border-border/50 bg-gradient-to-br from-blue-50/80 via-purple-50/50 to-pink-50/80 dark:from-blue-950/30 dark:via-purple-950/20 dark:to-pink-950/30 shadow-md flex flex-col">
-                      <div className="flex items-center gap-2 mb-3 flex-shrink-0">
-                        <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                          <Sparkles className="w-3.5 h-3.5 text-white" />
-                        </div>
-                        <span className="text-sm font-semibold text-foreground">AI Overview</span>
-                      </div>
-                      
-                      <div className="flex-1 flex flex-col justify-between min-h-0">
-                        <p className="text-[15px] leading-[1.5] text-foreground/95 overflow-y-auto">
-                          {searchData.aiOverview}
-                        </p>
-                        
-                        <div className="pt-3 border-t border-border/30 mt-3 flex-shrink-0">
-                          <p className="text-[11px] text-muted-foreground italic">
-                            Generative AI is experimental. Info quality may vary.
-                          </p>
-                        </div>
-                      </div>
+                {/* AI Overview Card */}
+                <div className="max-w-[600px] mb-8 p-5 rounded-xl border border-border/50 bg-gradient-to-br from-blue-50/80 via-purple-50/50 to-pink-50/80 dark:from-blue-950/30 dark:via-purple-950/20 dark:to-pink-950/30 shadow-md">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
+                      <Sparkles className="w-3.5 h-3.5 text-white" />
+                    </div>
+                    <span className="text-sm font-semibold text-foreground">AI Overview</span>
+                  </div>
+                  
+                  <div className="space-y-3">
+                    <p className="text-[15px] leading-[1.6] text-foreground/95 whitespace-pre-line">
+                      {searchData.aiOverview}
+                    </p>
+                    
+                    <div className="pt-2 border-t border-border/30">
+                      <p className="text-[11px] text-muted-foreground italic">
+                        Generative AI is experimental. Info quality may vary.
+                      </p>
                     </div>
                   </div>
                 </div>
