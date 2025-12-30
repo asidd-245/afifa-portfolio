@@ -13,6 +13,7 @@ export default function Home() {
   // Random facts about Afifa
   const afifaFacts = [
     "Afifa is studying Computer Engineering at the University of Waterloo",
+    "Afifa started her coding journey in grade 7 - a true early starter!",
     "Afifa has expertise in React, Node.js, and TypeScript",
     "Afifa builds innovative full-stack applications with modern web technologies",
     "Afifa is passionate about AI integration and creative problem-solving",
