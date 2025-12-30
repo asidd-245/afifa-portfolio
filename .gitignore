@@ -7,6 +7,10 @@ dist/
 build/
 *.dist
 
+# GitHub Pages build output (docs folder is committed for GitHub Pages)
+# Uncomment the line below if you want to ignore the docs folder
+# docs/
+
 # Environment variables
 .env
 .env.local

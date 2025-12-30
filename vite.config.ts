@@ -1,14 +1,18 @@
 import { jsxLocPlugin } from "@builder.io/vite-plugin-jsx-loc";
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
-import fs from "node:fs";
 import path from "path";
 import { defineConfig } from "vite";
 import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
+// Get base path from environment variable, default to empty for root deployment
+// For GitHub Pages subdirectory: set VITE_BASE_PATH=/repo-name/
+const base = process.env.VITE_BASE_PATH || "/";
+
 export default defineConfig({
+  base,
   plugins,
   resolve: {
     alias: {
@@ -20,7 +24,7 @@ export default defineConfig({
   envDir: path.resolve(import.meta.dirname),
   root: path.resolve(import.meta.dirname, "client"),
   build: {
-    outDir: path.resolve(import.meta.dirname, "dist/public"),
+    outDir: path.resolve(import.meta.dirname, process.env.GITHUB_PAGES ? "docs" : "dist/public"),
     emptyOutDir: true,
   },
   server: {

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Afifa Portfolio</title>
+    <script>
+      // GitHub Pages SPA redirect
+      // Redirects 404s to index.html, preserving the path as a query parameter
+      var path = window.location.pathname;
+      var search = window.location.search;
+      var hash = window.location.hash;
+      
+      // Get the directory containing index.html (base path)
+      var pathParts = path.split('/').filter(function(p) { return p; });
+      var basePath = '/' + pathParts.slice(0, -1).join('/') + '/';
+      if (basePath === '//') basePath = '/';
+      
+      // Redirect to index.html with the path as a query parameter
+      window.location.replace(
+        basePath + 'index.html?p=' + encodeURIComponent(path) + 
+        (search ? '&' + search.slice(1) : '') + hash
+      );
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
+
