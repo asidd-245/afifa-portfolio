@@ -112,11 +112,19 @@ function generateFakeResults(query: string): SearchResult[] {
 
 // Generate AI Overview with Gemini
 export async function generateSearchOverview(query: string): Promise<{ aiOverview: string, results: SearchResult[] }> {
+  // #region agent log
+  fetch('http://127.0.0.1:7244/ingest/4659b8fb-fc58-4957-9cac-039ef1a32bd6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'server/gemini.ts:114',message:'generateSearchOverview called',data:{query},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A'})}).catch(()=>{});
+  // #endregion
+  
   try {
     const model = genAI.getGenerativeModel({ model: "gemini-pro" });
     
     const relevantPage = determineRelevantPage(query);
     const pageUrl = `/${relevantPage}`;
+    
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/4659b8fb-fc58-4957-9cac-039ef1a32bd6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'server/gemini.ts:123',message:'Before Gemini API call',data:{query,relevantPage},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A'})}).catch(()=>{});
+    // #endregion
     
     const prompt = `You are creating an AI Overview for a search query about a person named Afifa Siddiqua.
 
@@ -143,6 +151,10 @@ Generate the AI Overview now:`;
     const result = await model.generateContent(prompt);
     const response = await result.response;
     const aiOverview = response.text();
+    
+    // #region agent log
+    fetch('http://127.0.0.1:7244/ingest/4659b8fb-fc58-4957-9cac-039ef1a32bd6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'server/gemini.ts:148',message:'Gemini API response received',data:{query,aiOverview:aiOverview.substring(0,200),fullLength:aiOverview.length},timestamp:Date.now(),sessionId:'debug-session',hypothesisId:'A'})}).catch(()=>{});
+    // #endregion
     
     const results = generateFakeResults(query);
     
