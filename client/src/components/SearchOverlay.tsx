@@ -50,7 +50,7 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-[95vw] w-full aspect-video m-0 p-0 bg-background border border-border rounded-xl overflow-hidden flex flex-col shadow-2xl">
+      <DialogContent className="max-w-[98vw] w-full aspect-video m-0 p-0 bg-background border border-border rounded-xl overflow-hidden flex flex-col shadow-2xl max-h-[90vh]">
         <div className="h-full bg-background flex flex-col overflow-hidden">
           {/* Header */}
           <header className="flex-shrink-0 bg-background z-50 border-b border-border/40 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-6">
