@@ -2,19 +2,20 @@ import { useState } from "react";
 import { Search, User, FolderGit2, Briefcase, Mail, Mic, Camera } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link, useLocation } from "wouter";
+import { Link } from "wouter";
+import { SearchOverlay } from "@/components/SearchOverlay";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [, setLocation] = useLocation();
+  const [showSearchOverlay, setShowSearchOverlay] = useState(false);
+  const [currentQuery, setCurrentQuery] = useState("");
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.toLowerCase().includes("about")) setLocation("/about");
-    else if (searchQuery.toLowerCase().includes("project")) setLocation("/projects");
-    else if (searchQuery.toLowerCase().includes("experience")) setLocation("/experience");
-    else if (searchQuery.toLowerCase().includes("contact")) setLocation("/contact");
-    else window.open(`https://www.google.com/search?q=${searchQuery}`, "_blank");
+    if (searchQuery.trim()) {
+      setCurrentQuery(searchQuery);
+      setShowSearchOverlay(true);
+    }
   };
 
   const navItems = [
@@ -103,7 +104,7 @@ export default function Home() {
           
           <div className="flex justify-center gap-3 mt-8">
             <Button type="submit" variant="secondary" className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9">
-              Google Search
+              afoofle Search
             </Button>
             <Button type="button" variant="secondary" className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9">
               I'm Feeling Lucky
@@ -146,6 +147,13 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Search Overlay */}
+      <SearchOverlay
+        open={showSearchOverlay}
+        query={currentQuery}
+        onClose={() => setShowSearchOverlay(false)}
+      />
     </div>
   );
 }
