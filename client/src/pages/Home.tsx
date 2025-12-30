@@ -10,12 +10,47 @@ export default function Home() {
   const [showSearchOverlay, setShowSearchOverlay] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
 
+  // Random facts about Afifa
+  const afifaFacts = [
+    "Afifa is studying Computer Engineering at the University of Waterloo",
+    "Afifa has expertise in React, Node.js, and TypeScript",
+    "Afifa builds innovative full-stack applications with modern web technologies",
+    "Afifa is passionate about AI integration and creative problem-solving",
+    "Afifa has experience developing responsive web platforms",
+    "Afifa is skilled in both frontend and backend development",
+    "Afifa creates user-friendly interfaces with attention to detail",
+    "Afifa continuously learns and adapts to new technologies",
+  ];
+
+  // Things Afifa might have searched before
+  const afifaSearches = [
+    "best practices for React hooks 2024",
+    "TypeScript generics tutorial",
+    "how to optimize database queries",
+    "modern CSS animations",
+    "Node.js performance tips",
+    "system design interview questions",
+    "Waterloo computer engineering courses",
+    "full stack developer roadmap",
+    "AI integration in web apps",
+    "responsive design patterns",
+    "git workflow best practices",
+    "debugging React performance issues",
+  ];
+
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
-      setCurrentQuery(searchQuery);
-      setShowSearchOverlay(true);
-    }
+    // Use a random search that Afifa would have done
+    const randomSearch = afifaSearches[Math.floor(Math.random() * afifaSearches.length)];
+    setCurrentQuery(randomSearch);
+    setShowSearchOverlay(true);
+  };
+
+  const handleFeelingLucky = () => {
+    // Show a random fact about Afifa
+    const randomFact = afifaFacts[Math.floor(Math.random() * afifaFacts.length)];
+    setCurrentQuery(randomFact);
+    setShowSearchOverlay(true);
   };
 
   const navItems = [
@@ -53,7 +88,6 @@ export default function Home() {
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden">
       {/* Top Right Nav */}
       <div className="absolute top-4 right-4 flex items-center gap-4">
-        <a href="#" className="text-sm hover:underline">Gmail</a>
         <a href="#" className="text-sm hover:underline">Images</a>
         <Button variant="ghost" size="icon" className="rounded-full hover:bg-secondary">
           <div className="grid grid-cols-3 gap-1 p-2">
@@ -61,9 +95,6 @@ export default function Home() {
               <div key={i} className="w-1 h-1 bg-foreground/60 rounded-full" />
             ))}
           </div>
-        </Button>
-        <Button className="rounded-full bg-google-blue hover:bg-google-blue/90 text-white px-6">
-          Sign in
         </Button>
       </div>
 
@@ -106,8 +137,13 @@ export default function Home() {
             <Button type="submit" variant="secondary" className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9">
               afoofle Search
             </Button>
-            <Button type="button" variant="secondary" className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9">
-              I'm Feeling Lucky
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9"
+              onClick={handleFeelingLucky}
+            >
+              I'm Feeling Lucky (afifafied)
             </Button>
           </div>
         </form>
