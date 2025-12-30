@@ -61,10 +61,10 @@ export default function Home() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // Use a random search that Afifa would have done
-    const randomSearch = afifaSearches[Math.floor(Math.random() * afifaSearches.length)];
-    setCurrentQuery(randomSearch);
-    setShowSearchOverlay(true);
+    if (searchQuery.trim()) {
+      setCurrentQuery(searchQuery);
+      setShowSearchOverlay(true);
+    }
   };
 
   const handleFeelingLucky = () => {

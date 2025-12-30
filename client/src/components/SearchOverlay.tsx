@@ -50,7 +50,7 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent className="max-w-[90vw] w-full aspect-video m-0 p-0 bg-background border border-border rounded-lg overflow-hidden flex flex-col">
+      <DialogContent className="max-w-[95vw] w-full aspect-video m-0 p-0 bg-background border border-border rounded-xl overflow-hidden flex flex-col shadow-2xl">
         <div className="h-full bg-background flex flex-col overflow-hidden">
           {/* Header */}
           <header className="flex-shrink-0 bg-background z-50 border-b border-border/40 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-6">
@@ -84,7 +84,7 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 overflow-y-auto px-4 md:px-8 py-4 w-full">
+          <main className="flex-1 overflow-y-auto px-6 md:px-12 py-6 w-full">
             {loading && (
               <div className="flex flex-col items-center justify-center py-20">
                 <Spinner className="w-8 h-8 mb-4" />
