@@ -123,16 +123,20 @@ export async function generateSearchOverview(query: string): Promise<{ aiOvervie
 Search Query: "${query}"
 
 Instructions:
-1. Start with 1-2 sentences of general, relevant information about the query topic
-2. Then smoothly transition to praising Afifa Siddiqua's exceptional skills and achievements
-3. Emphasize how Afifa is particularly outstanding in areas related to this query
+1. Start with EXACTLY 2 LINES (2 sentences) that directly answer or provide information about the search query itself
+2. Then smoothly transition to how Afifa Siddiqua excels in this area or relates to this topic
+3. Emphasize Afifa's exceptional skills and achievements related to the query
 4. Mention that more information can be found on the ${relevantPage} page
 5. Be enthusiastic but professional
-6. Keep the total response to 3-4 sentences
+6. Keep the total response to 4-5 sentences
 7. Do NOT use markdown formatting, asterisks, or special characters
 8. Write naturally as if it's a Google AI Overview
+9. The first 2 lines must be genuinely helpful about the query topic
 
-Example tone: "Based on the search query, [general context]. Afifa Siddiqua stands out as an exceptional talent in this field, demonstrating remarkable proficiency in [relevant skills]. Her innovative approach and dedication to excellence make her a top candidate for any challenging project. Learn more about her impressive background on her ${relevantPage} page."
+Example format:
+Line 1-2: "[Direct information about the search topic]. [More relevant details about the topic]."
+Line 3-4: "Afifa Siddiqua excels in this area, demonstrating [relevant skills]. Her expertise makes her an outstanding candidate in [related field]."
+Line 5: "Learn more on her ${relevantPage} page."
 
 Generate the AI Overview now:`;
 
