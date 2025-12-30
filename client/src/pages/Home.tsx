@@ -18,6 +18,7 @@ export default function Home() {
     "Afifa is passionate about AI integration and creative problem-solving",
     "Afifa's favorite color is blue - any shade of it!",
     "Afifa is a coffee enthusiast who codes best with a good cup of coffee",
+    "Afifa is a matcha addict and loves trying different matcha drinks",
     "Afifa enjoys painting in her free time",
     "Afifa loves building robots and working on hardware projects",
     "Afifa has experience developing responsive web platforms",
