@@ -53,8 +53,8 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
       <DialogContent className="max-w-full w-full h-full m-0 p-0 bg-background border-0 rounded-none overflow-y-auto">
         <div className="min-h-screen bg-background">
           {/* Header */}
-          <header className="sticky top-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border/40 px-4 py-3 flex items-center gap-4 md:gap-8 shadow-sm">
-            <div className="text-2xl font-bold tracking-tighter select-none cursor-pointer" onClick={onClose}>
+          <header className="sticky top-0 bg-background/95 backdrop-blur-sm z-50 border-b border-border/40 px-4 md:px-6 py-3 flex items-center gap-3 md:gap-6 shadow-sm">
+            <div className="text-xl md:text-2xl font-bold tracking-tighter select-none cursor-pointer flex-shrink-0" onClick={onClose}>
               <span className="text-google-blue">a</span>
               <span className="text-google-red">f</span>
               <span className="text-google-yellow">o</span>
@@ -64,19 +64,19 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
               <span className="text-google-blue inline-block transform rotate-12">e</span>
             </div>
             
-            <div className="flex-1 max-w-2xl relative">
+            <div className="flex-1 max-w-2xl relative min-w-0">
               <input 
                 type="text" 
                 value={query}
                 readOnly
-                className="w-full h-10 pl-4 pr-12 rounded-full border border-input bg-background hover:bg-secondary/50 hover:shadow-sm focus:outline-none focus:shadow-md transition-all"
+                className="w-full h-10 pl-4 pr-12 rounded-full border border-input bg-background hover:bg-secondary/50 hover:shadow-sm focus:outline-none focus:shadow-md transition-all text-sm truncate"
               />
               <Search className="absolute right-4 top-2.5 w-5 h-5 text-google-blue" />
             </div>
             
             <button 
               onClick={onClose}
-              className="ml-auto p-2 hover:bg-secondary rounded-full transition-colors"
+              className="flex-shrink-0 p-2 hover:bg-secondary rounded-full transition-colors"
               aria-label="Close"
             >
               <X className="w-5 h-5" />
@@ -84,7 +84,7 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
           </header>
 
           {/* Main Content */}
-          <main className="flex-1 px-4 md:px-[180px] py-6 pb-12">
+          <main className="flex-1 px-4 md:px-[180px] py-6 pb-12 max-w-[1200px] mx-auto w-full">
             {loading && (
               <div className="flex flex-col items-center justify-center py-20">
                 <Spinner className="w-8 h-8 mb-4" />
@@ -94,26 +94,26 @@ export function SearchOverlay({ open, query, onClose }: SearchOverlayProps) {
 
             {!loading && searchData && (
               <>
-                <div className="text-sm text-muted-foreground mb-4">
+                <div className="text-sm text-muted-foreground mb-6">
                   About {searchData.results.length} results (0.{Math.floor(Math.random() * 90 + 10)} seconds)
                 </div>
 
                 {/* AI Overview Card */}
-                <div className="max-w-[600px] mb-8 p-6 rounded-2xl border border-border/50 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-pink-50/50 dark:from-blue-950/20 dark:via-purple-950/10 dark:to-pink-950/20 shadow-sm">
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="p-2 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
-                      <Sparkles className="w-4 h-4 text-white" />
+                <div className="max-w-[600px] mb-8 p-5 rounded-xl border border-border/50 bg-gradient-to-br from-blue-50/80 via-purple-50/50 to-pink-50/80 dark:from-blue-950/30 dark:via-purple-950/20 dark:to-pink-950/30 shadow-md">
+                  <div className="flex items-center gap-2 mb-3">
+                    <div className="p-1.5 rounded-lg bg-gradient-to-br from-blue-500 to-purple-600">
+                      <Sparkles className="w-3.5 h-3.5 text-white" />
                     </div>
                     <span className="text-sm font-semibold text-foreground">AI Overview</span>
                   </div>
                   
                   <div className="space-y-3">
-                    <p className="text-sm leading-relaxed text-foreground/90">
+                    <p className="text-[15px] leading-[1.6] text-foreground/95 whitespace-pre-line">
                       {searchData.aiOverview}
                     </p>
                     
-                    <div className="pt-3 border-t border-border/30">
-                      <p className="text-xs text-muted-foreground italic">
+                    <div className="pt-2 border-t border-border/30">
+                      <p className="text-[11px] text-muted-foreground italic">
                         Generative AI is experimental. Info quality may vary.
                       </p>
                     </div>
