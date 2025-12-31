@@ -56,23 +56,23 @@ export default function About() {
           {/* Top Result / Intro */}
           <div className="space-y-2">
             <div className="text-sm text-muted-foreground">About Afifa</div>
-            <h1 className="text-3xl font-normal text-foreground">Afifa</h1>
-            <div className="text-muted-foreground">Full Stack Developer • Creative Thinker</div>
+            <h1 className="text-3xl font-normal text-foreground">Afifa Siddiqua</h1>
+            <div className="text-muted-foreground">Software Engineer, Product/Project Manager</div>
           </div>
 
           {/* Image Gallery Grid */}
-          <div className="grid grid-cols-4 grid-rows-2 gap-2 h-[300px] rounded-2xl overflow-hidden">
+          <div className="grid grid-cols-4 grid-rows-2 gap-1 h-[400px] rounded-2xl overflow-hidden">
             <div className="col-span-2 row-span-2 bg-secondary relative group cursor-pointer">
-              <img src="/images/profile.jpg" alt="Afifa Siddiqua" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/profile.jpg" alt="Afifa Siddiqua - Professional Portrait" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="bg-secondary relative group cursor-pointer">
-              <img src="/images/photo3.jpg" alt="Afifa" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/waterloo-engineering.jpg" alt="Waterloo Engineering" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="bg-secondary relative group cursor-pointer">
-              <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?q=80&w=400&auto=format&fit=crop" alt="Workspace" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/battery-workforce.jpg" alt="VEX Robotics Competition" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
             <div className="col-span-2 bg-secondary relative group cursor-pointer">
-              <img src="/images/group.jpg" alt="Team Collaboration" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
+              <img src="/images/vex-robot.jpg" alt="Battery Workforce Challenge Team" className="w-full h-full object-cover transition-transform group-hover:scale-105" />
             </div>
           </div>
 
@@ -103,27 +103,27 @@ export default function About() {
             <div className="relative pl-4 border-l border-border space-y-8">
               <div className="relative">
                 <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-google-blue border-2 border-background"></div>
-                <div className="text-sm text-muted-foreground mb-1">2018</div>
+                <div className="text-sm text-muted-foreground mb-1">Elementary School</div>
                 <h3 className="font-medium">The Spark</h3>
-                <p className="text-sm text-muted-foreground mt-1">Wrote my first line of code in Python. Realized the power of automation and creation.</p>
+                <p className="text-sm text-muted-foreground mt-1">Joined my elementary school's VEX Robotics team and discovered a love for coding. This curiosity led me to co-found a coding club with friends, where we taught block-based programming.</p>
               </div>
               <div className="relative">
                 <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-google-red border-2 border-background"></div>
-                <div className="text-sm text-muted-foreground mb-1">2020</div>
-                <h3 className="font-medium">University Journey</h3>
-                <p className="text-sm text-muted-foreground mt-1">Started Computer Science degree. Deep dived into algorithms and data structures.</p>
+                <div className="text-sm text-muted-foreground mb-1">High School</div>
+                <h3 className="font-medium">Grinding IRL</h3>
+                <p className="text-sm text-muted-foreground mt-1">Competed in VEX Robotics and won 3 times. Led Girls Who Code, teaching Python, Java, and HTML. Torn between medicine and engineering, I found interest at the intersection of AI, tech, and healthcare.</p>
               </div>
               <div className="relative">
                 <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-google-yellow border-2 border-background"></div>
-                <div className="text-sm text-muted-foreground mb-1">2022</div>
-                <h3 className="font-medium">First Internship</h3>
-                <p className="text-sm text-muted-foreground mt-1">Worked as a Junior Dev at a startup. Learned React and modern web development.</p>
+                <div className="text-sm text-muted-foreground mb-1">University</div>
+                <h3 className="font-medium">Actually Shipping</h3>
+                <p className="text-sm text-muted-foreground mt-1">Started university and built my first medtech project. Also, joined the FE design team, and realized I love working with vehicles. Landed my first healthcare internship!</p>
               </div>
               <div className="relative">
                 <div className="absolute -left-[21px] top-1 w-3 h-3 rounded-full bg-google-green border-2 border-background"></div>
                 <div className="text-sm text-muted-foreground mb-1">Present</div>
-                <h3 className="font-medium">Building the Future</h3>
-                <p className="text-sm text-muted-foreground mt-1">Focusing on full-stack development and exploring AI integration in web apps.</p>
+                <h3 className="font-medium">Current Mode: Building</h3>
+                <p className="text-sm text-muted-foreground mt-1">Challenged myself by taking on the role of a SWE Lead at the Battery Workforce Challenge by Stellantis. Building full-stack side projects, going deeper into AI/ML, and grinding for Summer 2026 internships and co-ops.</p>
               </div>
             </div>
           </div>
@@ -143,7 +143,9 @@ export default function About() {
               <p className="text-muted-foreground mb-4">Computer Engineering Student</p>
               
               <div className="flex gap-2 mb-6">
-                <Button className="bg-google-blue hover:bg-google-blue/90 text-white rounded-full px-6">Follow</Button>
+                <Button asChild className="bg-google-blue hover:bg-google-blue/90 text-white rounded-full px-6">
+                  <a href="/resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
+                </Button>
                 <Button variant="outline" size="icon" className="rounded-full"><Share2 className="w-4 h-4" /></Button>
               </div>
 
@@ -153,7 +155,7 @@ export default function About() {
 
               <div className="space-y-4 text-sm">
                 <div className="grid grid-cols-[100px_1fr] gap-2">
-                  <span className="font-bold">Born</span>
+                  <span className="font-bold">Based</span>
                   <span>Canada</span>
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2">
@@ -162,7 +164,7 @@ export default function About() {
                 </div>
                 <div className="grid grid-cols-[100px_1fr] gap-2">
                   <span className="font-bold">Experience</span>
-                  <span>5+ Years</span>
+                  <span>2+ Years</span>
                 </div>
               </div>
 
