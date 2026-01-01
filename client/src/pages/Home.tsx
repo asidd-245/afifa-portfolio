@@ -1,20 +1,25 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Search, User, FolderGit2, Briefcase, Linkedin, Github, FileText, Mic, Camera, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "wouter";
 import { SearchOverlay } from "@/components/SearchOverlay";
-
-
-
+import { motion } from "framer-motion";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchOverlay, setShowSearchOverlay] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
   const [, setLocation] = useLocation();
+  const [showLetters, setShowLetters] = useState(false);
 
-  
+  useEffect(() => {
+    // Trigger the animation after a short delay
+    const timer = setTimeout(() => {
+      setShowLetters(true);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Random facts about Afifa
   const afifaFacts = [
@@ -121,7 +126,7 @@ export default function Home() {
       label: "X", 
       icon: <Twitter className="w-6 h-6 text-google-red" />,
       color: "bg-google-red/10 hover:bg-google-red/20",
-      href: "https://x.com/AfifaSiddiqua_", // Update with your X/Twitter profile
+      href: "https://x.com/AfifaSiddiqua_",
       isLink: false
     },
     { 
@@ -142,6 +147,16 @@ export default function Home() {
     },
   ];
 
+  const letters = [
+    { char: "a", color: "text-google-blue", delay: 0 },
+    { char: "f", color: "text-google-red", delay: 0.1 },
+    { char: "o", color: "text-google-yellow", delay: 0.2 },
+    { char: "o", color: "text-google-blue", delay: 0.3 },
+    { char: "f", color: "text-google-green", delay: 0.4 },
+    { char: "l", color: "text-google-red", delay: 0.5 },
+    { char: "e", color: "text-google-blue", delay: 0.6 },
+  ];
+
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-background p-4 relative overflow-hidden">
       {/* Top Right Nav */}
@@ -158,24 +173,60 @@ export default function Home() {
 
       {/* Main Content */}
       <main className="flex flex-col items-center w-full max-w-2xl gap-8 -mt-20">
-        {/* Logo - Thinner and Tilted */}
+        {/* Logo - Animated Letters */}
         <div className="flex flex-col items-center gap-2">
-          <h1 className="text-[5.5rem] font-medium tracking-tighter select-none">
-            <span className="text-google-blue">a</span>
-            <span className="text-google-red">f</span>
-            <span className="text-google-yellow">o</span>
-            <span className="text-google-blue">o</span>
-            <span className="text-google-green">f</span>
-            <span className="text-google-red">l</span>
-            <span className="text-google-blue inline-block transform rotate-12">e</span>
+          <h1 className="text-[5.5rem] font-medium tracking-tighter select-none flex">
+            {letters.map((letter, index) => (
+              <motion.span
+                key={index}
+                className={letter.color}
+                initial={{ y: -100, opacity: 0 }}
+                animate={showLetters ? { y: 0, opacity: 1 } : { y: -100, opacity: 0 }}
+                transition={{
+                  duration: 0.5,
+                  delay: letter.delay,
+                  ease: [0.34, 1.56, 0.64, 1]
+                }}
+                style={index === letters.length - 1 ? { display: "inline-block" } : {}}
+              >
+                {index === letters.length - 1 ? (
+                  <motion.span
+                    animate={{ rotate: [0, 15, -15, 15, 0] }}
+                    transition={{
+                      duration: 3,
+                      delay: letter.delay + 0.5,
+                      ease: "easeInOut",
+                      repeat: Infinity,
+                      repeatDelay: 0
+                    }}
+                    style={{ display: "inline-block" }}
+                  >
+                    {letter.char}
+                  </motion.span>
+                ) : (
+                  letter.char
+                )}
+              </motion.span>
+            ))}
           </h1>
-          <p className="text-sm text-muted-foreground -mt-4">
+          <motion.p 
+            className="text-sm text-muted-foreground -mt-4"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
             afifa siddiqua's personal search engine
-          </p>
+          </motion.p>
         </div>
 
         {/* Search Bar */}
-        <form onSubmit={handleSearch} className="w-full relative group">
+        <motion.form 
+          onSubmit={handleSearch} 
+          className="w-full relative group"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1 }}
+        >
           <div className="relative flex items-center w-full">
             <Search className="absolute left-4 w-5 h-5 text-muted-foreground" />
             <Input 
@@ -198,7 +249,7 @@ export default function Home() {
               className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9"
               onClick={() => setLocation("/contact")}
             >
-              Contact Me
+              Contact Me 
             </Button>
             <Button 
               type="button" 
@@ -209,40 +260,51 @@ export default function Home() {
               I'm Feeling Lucky (afifafied)
             </Button>
           </div>
-        </form>
+        </motion.form>
 
         {/* Navigation Circles */}
-        <div className="grid grid-cols-4 md:grid-cols-7 gap-4 md:gap-8 mt-4 w-full">
-          {navItems.map((item) => (
-            item.isLink ? (
-              <Link key={item.id} href={item.path}>
-                <div className="flex flex-col items-center gap-3 group cursor-pointer">
+        <motion.div 
+          className="grid grid-cols-4 md:grid-cols-7 gap-4 md:gap-8 mt-4 w-full"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 1.2 }}
+        >
+          {navItems.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 1.2 + (index * 0.05) }}
+            >
+              {item.isLink ? (
+                <Link href={item.path}>
+                  <div className="flex flex-col items-center gap-3 group cursor-pointer">
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${item.color} bg-secondary`}>
+                      {item.icon}
+                    </div>
+                    <span className="text-sm text-foreground/80 group-hover:text-foreground font-medium">
+                      {item.label}
+                    </span>
+                  </div>
+                </Link>
+              ) : (
+                <a 
+                  href={item.href} 
+                  target={item.href?.startsWith('http') ? "_blank" : undefined}
+                  rel={item.href?.startsWith('http') ? "noopener noreferrer" : undefined}
+                  className="flex flex-col items-center gap-3 group cursor-pointer"
+                >
                   <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${item.color} bg-secondary`}>
                     {item.icon}
                   </div>
                   <span className="text-sm text-foreground/80 group-hover:text-foreground font-medium">
                     {item.label}
                   </span>
-                </div>
-              </Link>
-            ) : (
-              <a 
-                key={item.id} 
-                href={item.href} 
-                target={item.href?.startsWith('http') ? "_blank" : undefined}
-                rel={item.href?.startsWith('http') ? "noopener noreferrer" : undefined}
-                className="flex flex-col items-center gap-3 group cursor-pointer"
-              >
-                <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${item.color} bg-secondary`}>
-                  {item.icon}
-                </div>
-                <span className="text-sm text-foreground/80 group-hover:text-foreground font-medium">
-                  {item.label}
-                </span>
-              </a>
-            )
+                </a>
+              )}
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </main>
 
       {/* Footer */}
