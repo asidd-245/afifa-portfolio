@@ -5,11 +5,16 @@ import { Input } from "@/components/ui/input";
 import { Link, useLocation } from "wouter";
 import { SearchOverlay } from "@/components/SearchOverlay";
 
+
+
+
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchOverlay, setShowSearchOverlay] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
   const [, setLocation] = useLocation();
+
+  
 
   // Random facts about Afifa
   const afifaFacts = [
@@ -116,7 +121,7 @@ export default function Home() {
       label: "X", 
       icon: <Twitter className="w-6 h-6 text-google-red" />,
       color: "bg-google-red/10 hover:bg-google-red/20",
-      href: "https://twitter.com", // Update with your X/Twitter profile
+      href: "https://x.com/AfifaSiddiqua_", // Update with your X/Twitter profile
       isLink: false
     },
     { 
@@ -193,7 +198,7 @@ export default function Home() {
               className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9"
               onClick={() => setLocation("/contact")}
             >
-              contact
+              Contact Me
             </Button>
             <Button 
               type="button" 
