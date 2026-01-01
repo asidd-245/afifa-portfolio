@@ -45,24 +45,27 @@ export default function Projects() {
   const projects = [
     {
       title: "StressSens: AI-Powered Stress Monitoring",
-      url: "https://github.com/asidd-245/StressSens",
+      url: "github.com/asidd-245/stress-monitor-extension",
       description: "Engineered a full-stack stress-monitoring pipeline using JavaScript, Node.js, and Apple Watch health-signal processing. Built personalized coaching features using OpenAI LLMs and deployed a Dockerized Node.js backend.",
       tags: ["JavaScript", "Node.js", "OpenAI API", "Docker"],
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=600&auto=format&fit=crop",
+      href: "https://github.com/asidd-245/stress-monitor-extension"
     },
     {
       title: "PillSync - Medication Tracking App",
-      url: "https://github.com/asidd-245/PillSync",
+      url: "github.com/advitiya6594/PillSync",
       description: "Built a full-stack medication-tracking web app using React & Node.js. Designed an interaction-analysis engine using RxNorm & OpenFDA APIs to generate reliable risk assessments for users.",
       tags: ["React", "Node.js", "RxNorm", "OpenFDA"],
-      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?q=80&w=600&auto=format&fit=crop",
+      href: "https://github.com/advitiya6594/PillSync"
     },
     {
       title: "SpeakEasy: ALS Morse Code Translator",
-      url: "https://github.com/asidd-245/SpeakEasy",
+      url: "github.com/asidd-245/SpeakEasy",
       description: "Developed an assistive-communication system using STM32 microcontrollers, C++, and capacitive touch sensors. Enabled hands-free Morse-code input for ALS patients, improving communication accuracy.",
       tags: ["C++", "STM32", "Embedded Systems", "Assistive Tech"],
-      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=600&auto=format&fit=crop",
+      href: "https://github.com/asidd-245/SpeakEasy"
     }
   ];
 

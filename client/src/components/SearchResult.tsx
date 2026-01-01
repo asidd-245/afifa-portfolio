@@ -33,11 +33,17 @@ export const SearchResult = ({ title, url, description, tags, icon, image, href 
     <HoverCard openDelay={200}>
       <HoverCardTrigger asChild>
         {href ? (
-          <Link href={href}>
-            <a className="block w-fit">
+          href.startsWith('http') ? (
+            <a href={href} target="_blank" rel="noopener noreferrer" className="block w-fit">
               <h3 className="text-xl text-google-blue font-normal mb-1 group-hover:underline decoration-google-blue cursor-pointer break-words">{title}</h3>
             </a>
-          </Link>
+          ) : (
+            <Link href={href}>
+              <a className="block w-fit">
+                <h3 className="text-xl text-google-blue font-normal mb-1 group-hover:underline decoration-google-blue cursor-pointer break-words">{title}</h3>
+              </a>
+            </Link>
+          )
         ) : (
           <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="block w-fit">
             <h3 className="text-xl text-google-blue font-normal mb-1 group-hover:underline decoration-google-blue cursor-pointer break-words">{title}</h3>

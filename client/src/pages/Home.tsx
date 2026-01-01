@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Search, User, FolderGit2, Briefcase, Mail, Mic, Camera } from "lucide-react";
+import { Search, User, FolderGit2, Briefcase, Linkedin, Github, FileText, Mic, Camera, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { SearchOverlay } from "@/components/SearchOverlay";
 
 export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [showSearchOverlay, setShowSearchOverlay] = useState(false);
   const [currentQuery, setCurrentQuery] = useState("");
+  const [, setLocation] = useLocation();
 
   // Random facts about Afifa
   const afifaFacts = [
@@ -61,7 +62,10 @@ export default function Home() {
 
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    if (searchQuery.trim()) {
+    const query = searchQuery.trim().toLowerCase();
+    if (query === "contact") {
+      setLocation("/contact");
+    } else if (query) {
       setCurrentQuery(searchQuery);
       setShowSearchOverlay(true);
     }
@@ -80,28 +84,56 @@ export default function Home() {
       label: "About", 
       icon: <User className="w-6 h-6 text-google-blue" />,
       color: "bg-google-blue/10 hover:bg-google-blue/20",
-      path: "/about"
+      path: "/about",
+      isLink: true
     },
     { 
       id: "projects", 
       label: "Projects", 
       icon: <FolderGit2 className="w-6 h-6 text-google-red" />,
       color: "bg-google-red/10 hover:bg-google-red/20",
-      path: "/projects"
+      path: "/projects",
+      isLink: true
     },
     { 
       id: "experience", 
       label: "Experience", 
       icon: <Briefcase className="w-6 h-6 text-google-yellow" />,
       color: "bg-google-yellow/10 hover:bg-google-yellow/20",
-      path: "/experience"
+      path: "/experience",
+      isLink: true
     },
     { 
-      id: "contact", 
-      label: "Contact", 
-      icon: <Mail className="w-6 h-6 text-google-green" />,
+      id: "linkedin", 
+      label: "LinkedIn", 
+      icon: <Linkedin className="w-6 h-6 text-google-blue" />,
+      color: "bg-google-blue/10 hover:bg-google-blue/20",
+      href: "https://linkedin.com/in/afifa-siddiqua/",
+      isLink: false
+    },
+    { 
+      id: "twitter", 
+      label: "X", 
+      icon: <Twitter className="w-6 h-6 text-google-red" />,
+      color: "bg-google-red/10 hover:bg-google-red/20",
+      href: "https://twitter.com", // Update with your X/Twitter profile
+      isLink: false
+    },
+    { 
+      id: "github", 
+      label: "GitHub", 
+      icon: <Github className="w-6 h-6 text-google-yellow" />,
+      color: "bg-google-yellow/10 hover:bg-google-yellow/20",
+      href: "https://github.com/asidd-245",
+      isLink: false
+    },
+    { 
+      id: "resume", 
+      label: "Resume", 
+      icon: <FileText className="w-6 h-6 text-google-green" />,
       color: "bg-google-green/10 hover:bg-google-green/20",
-      path: "/contact"
+      href: "/resume.pdf",
+      isLink: false
     },
   ];
 
@@ -155,8 +187,13 @@ export default function Home() {
           </div>
           
           <div className="flex justify-center gap-3 mt-8">
-            <Button type="submit" variant="secondary" className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9">
-              afoofle Search
+            <Button 
+              type="button" 
+              variant="secondary" 
+              className="bg-secondary hover:border hover:border-input hover:shadow-sm text-sm px-6 h-9"
+              onClick={() => setLocation("/contact")}
+            >
+              contact
             </Button>
             <Button 
               type="button" 
@@ -170,18 +207,35 @@ export default function Home() {
         </form>
 
         {/* Navigation Circles */}
-        <div className="grid grid-cols-4 gap-4 md:gap-8 mt-4 w-full">
+        <div className="grid grid-cols-4 md:grid-cols-7 gap-4 md:gap-8 mt-4 w-full">
           {navItems.map((item) => (
-            <Link key={item.id} href={item.path}>
-              <div className="flex flex-col items-center gap-3 group cursor-pointer">
+            item.isLink ? (
+              <Link key={item.id} href={item.path}>
+                <div className="flex flex-col items-center gap-3 group cursor-pointer">
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${item.color} bg-secondary`}>
+                    {item.icon}
+                  </div>
+                  <span className="text-sm text-foreground/80 group-hover:text-foreground font-medium">
+                    {item.label}
+                  </span>
+                </div>
+              </Link>
+            ) : (
+              <a 
+                key={item.id} 
+                href={item.href} 
+                target={item.href?.startsWith('http') ? "_blank" : undefined}
+                rel={item.href?.startsWith('http') ? "noopener noreferrer" : undefined}
+                className="flex flex-col items-center gap-3 group cursor-pointer"
+              >
                 <div className={`w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 group-hover:scale-110 ${item.color} bg-secondary`}>
                   {item.icon}
                 </div>
                 <span className="text-sm text-foreground/80 group-hover:text-foreground font-medium">
                   {item.label}
                 </span>
-              </div>
-            </Link>
+              </a>
+            )
           ))}
         </div>
       </main>

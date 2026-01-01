@@ -49,9 +49,10 @@ interface ExperienceItemProps {
   location: string;
   description: string[];
   color: string;
+  image?: string;
 }
 
-const ExperienceItem = ({ role, company, period, location, description, color }: ExperienceItemProps) => {
+const ExperienceItem = ({ role, company, period, location, description, color, image }: ExperienceItemProps) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -65,13 +66,20 @@ const ExperienceItem = ({ role, company, period, location, description, color }:
     <motion.div 
       ref={ref}
       style={{ opacity, scale }}
-      className="relative pl-8 md:pl-12 py-8 group"
+      className="relative pl-8 md:pl-20 py-8 group"
     >
       {/* Timeline Line */}
-      <div className="absolute left-[11px] md:left-[19px] top-0 bottom-0 w-[2px] bg-border group-last:bottom-auto group-last:h-full" />
+      <div className="absolute left-[11px] md:left-[67px] top-0 bottom-0 w-[2px] bg-border group-last:bottom-auto group-last:h-full" />
       
       {/* Timeline Dot */}
-      <div className={`absolute left-0 md:left-2 top-10 w-6 h-6 rounded-full border-4 border-background ${color} shadow-sm z-10`} />
+      <div className={`absolute left-0 md:left-[48px] top-10 w-6 h-6 rounded-full border-4 border-background ${color} shadow-sm z-10`} />
+      
+      {/* Company Logo/Image */}
+      {image && (
+        <div className="absolute left-8 md:left-0 top-8 w-12 h-12 md:w-16 md:h-16 rounded-lg overflow-hidden border border-border bg-white shadow-sm">
+          <img src={image} alt={company} className="w-full h-full object-contain p-1" />
+        </div>
+      )}
       
       <div className="bg-card border border-border rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4">
@@ -116,7 +124,8 @@ export default function Experience() {
         "Modeled and validated Li-ion cells in MATLAB & Simulink, improving performance accuracy & safety evaluations.",
         "Integrated sensor data with embedded systems using Git & automated testing streamlining software reliability."
       ],
-      color: "bg-google-blue"
+      color: "bg-google-blue",
+      image: "/images/battery-workforce.jpg"
     },
     {
       role: "Digital Transformation Intern",
@@ -129,7 +138,8 @@ export default function Experience() {
         "Researched AI-agent applications using LLM frameworks and technical feasibility analysis, identifying 5+ high-impact opportunities.",
         "Supported project management using Scrum reports & Monday.com, ensuring timely hospital report delivery."
       ],
-      color: "bg-google-red"
+      color: "bg-google-red",
+      image: "/images/saint-elizabeth.jpg"
     },
     {
       role: "Team Leader",
@@ -141,7 +151,8 @@ export default function Experience() {
         "Enhanced program efficiency using Excel tracking systems, improving operational organization and reporting clarity.",
         "Mentored 100+ students using structured training, strengthening leadership and advocacy skill development."
       ],
-      color: "bg-google-yellow"
+      color: "bg-google-yellow",
+      image: "/images/durham-police.jpg"
     }
   ];
 
@@ -158,7 +169,7 @@ export default function Experience() {
 
         <div className="relative pb-24">
           {/* Vertical Line Background */}
-          <div className="absolute left-[11px] md:left-[19px] top-4 bottom-0 w-[2px] bg-border/50" />
+          <div className="absolute left-[11px] md:left-[67px] top-4 bottom-0 w-[2px] bg-border/50" />
           
           <div className="space-y-12">
             {experiences.map((exp, index) => (

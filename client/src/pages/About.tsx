@@ -57,7 +57,7 @@ export default function About() {
           <div className="space-y-2">
             <div className="text-sm text-muted-foreground">About Afifa</div>
             <h1 className="text-3xl font-normal text-foreground">Afifa Siddiqua</h1>
-            <div className="text-muted-foreground">Software Engineer, Product/Project Manager</div>
+            <div className="text-muted-foreground">Software Engineer ● Product/Project Manager ● AI/ML Enthusiast</div>
           </div>
 
           {/* Image Gallery Grid */}
