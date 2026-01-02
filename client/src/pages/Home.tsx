@@ -307,24 +307,7 @@ export default function Home() {
         </motion.div>
       </main>
 
-      {/* Footer */}
-      <footer className="absolute bottom-0 w-full bg-secondary text-muted-foreground text-sm">
-        <div className="px-8 py-3 border-b border-input">
-          Canada
-        </div>
-        <div className="px-8 py-3 flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="flex gap-6">
-            <a href="#" className="hover:underline">Advertising</a>
-            <a href="#" className="hover:underline">Business</a>
-            <a href="#" className="hover:underline">How Search works</a>
-          </div>
-          <div className="flex gap-6">
-            <a href="#" className="hover:underline">Privacy</a>
-            <a href="#" className="hover:underline">Terms</a>
-            <a href="#" className="hover:underline">Settings</a>
-          </div>
-        </div>
-      </footer>
+    
 
       {/* Search Overlay */}
       <SearchOverlay
